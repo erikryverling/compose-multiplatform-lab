@@ -1,0 +1,28 @@
+[versions]
+
+# Global
+kotlin = "2.1.20"
+
+# Plugins
+kotlin-dsl-plugin = "5.2.0"
+android-plugin = "8.6.1"
+compose-plugin = "1.6.11" # Bump
+
+# Libraries
+kotlinx-datetime = "0.6.1"
+
+compose-activity = "1.10.1"
+compose-tooling = "1.7.8"
+
+[plugins]
+kotlin-dsl = { id = "org.gradle.kotlin.kotlin-dsl", version.ref = "kotlin-dsl-plugin" }
+android = { id = "com.android.application", version.ref = "android-plugin" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+compose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+
+[libraries]
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
+
+compose-activity = { module = "androidx.activity:activity-compose", version.ref = "compose-activity" }
+compose-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose-tooling" }
