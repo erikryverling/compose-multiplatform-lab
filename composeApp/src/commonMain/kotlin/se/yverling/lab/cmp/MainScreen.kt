@@ -26,7 +26,6 @@ import kotlinx.datetime.LocalTime
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 import org.jetbrains.compose.resources.DrawableResource
-import org.jetbrains.compose.resources.InternalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
 data class Country(val name: String, val zone: TimeZone, val image: DrawableResource)
@@ -81,7 +80,6 @@ fun MainScreen(countries: List<Country> = countries()) {
                                         modifier = Modifier.size(50.dp).padding(end = 16.dp),
                                         contentDescription = "$name flag"
                                     )
-
                                     Text(name, style = MaterialTheme.typography.titleMedium)
                                 }
                             },
