@@ -6,7 +6,7 @@ kotlin = "2.1.20"
 # Plugins
 kotlin-dsl-plugin = "5.2.0"
 android-plugin = "8.6.1"
-compose-plugin = "1.6.11" # Bump
+compose-plugin = "1.8.0"
 
 # Libraries
 kotlinx-datetime = "0.6.1"
