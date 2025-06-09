@@ -21,53 +21,47 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import kotlinx.datetime.Clock
-import kotlinx.datetime.LocalTime
-import kotlinx.datetime.TimeZone
-import kotlinx.datetime.toLocalDateTime
-import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
+import se.yverling.lab.cmp.model.Country
+import se.yverling.lab.cmp.model.countries
+import se.yverling.lab.cmp.model.currentTimeAt
+import se.yverling.lab.cmp.theme.DefaultSpace
+import se.yverling.lab.cmp.theme.LargeSpace
 
-data class Country(val name: String, val zone: TimeZone, val image: DrawableResource)
-
-fun currentTimeAt(location: String, zone: TimeZone): String {
-    fun LocalTime.formatted() = "$hour:$minute:$second"
-
-    val time = Clock.System.now()
-    val localTime = time.toLocalDateTime(zone).time
-
-    return "The time in $location is ${localTime.formatted()}"
-}
-
-fun countries() = listOf(
-    Country("Japan", TimeZone.of("Asia/Tokyo"), Res.drawable.jp),
-    Country("France", TimeZone.of("Europe/Paris"), Res.drawable.fr),
-    Country("Mexico", TimeZone.of("America/Mexico_City"), Res.drawable.mx),
-    Country("Indonesia", TimeZone.of("Asia/Jakarta"), Res.drawable.id),
-    Country("Egypt", TimeZone.of("Africa/Cairo"), Res.drawable.eg),
-)
+private const val dropdownMenuWidthInPercent = 0.92f
+private val imageSize = 50.dp
 
 @Composable
-fun MainScreen(countries: List<Country> = countries()) {
+fun MainScreen(
+    countries: List<Country> = countries(),
+    modifier: Modifier = Modifier,
+) {
     MaterialTheme {
         var showCountries by remember { mutableStateOf(false) }
-        var timeAtLocation by remember { mutableStateOf("No location selected") }
 
-        Column(modifier = Modifier.padding(16.dp)) {
+        val timeAtLocationDefaultValue = stringResource(Res.string.no_location_selected)
+        var timeAtLocation by remember { mutableStateOf(timeAtLocationDefaultValue) }
+
+        Column(modifier = modifier.padding(DefaultSpace)) {
             Text(
-                timeAtLocation,
+                text = timeAtLocation,
                 style = MaterialTheme.typography.titleLarge,
                 textAlign = TextAlign.Center,
-                modifier = Modifier.fillMaxWidth().align(Alignment.CenterHorizontally)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .align(Alignment.CenterHorizontally)
+                    .padding(top = DefaultSpace)
             )
 
             Box(
                 modifier = Modifier
-                    .padding(top = 16.dp)
+                    .padding(top = LargeSpace)
                     .fillMaxWidth()
             ) {
 
                 DropdownMenu(
+                    modifier = Modifier.fillMaxWidth(dropdownMenuWidthInPercent),
                     expanded = showCountries,
                     onDismissRequest = { showCountries = false }
                 ) {
@@ -77,10 +71,14 @@ fun MainScreen(countries: List<Country> = countries()) {
                                 Row(verticalAlignment = Alignment.CenterVertically) {
                                     Image(
                                         painter = painterResource(image),
-                                        modifier = Modifier.size(50.dp).padding(end = 16.dp),
-                                        contentDescription = "$name flag"
+                                        modifier = Modifier.size(imageSize).padding(end = DefaultSpace),
+                                        contentDescription = stringResource(Res.string.image_content_description)
                                     )
-                                    Text(name, style = MaterialTheme.typography.titleMedium)
+
+                                    Text(
+                                        text = name,
+                                        style = MaterialTheme.typography.titleMedium
+                                    )
                                 }
                             },
 
@@ -93,8 +91,9 @@ fun MainScreen(countries: List<Country> = countries()) {
                 }
 
                 Button(
+                    modifier = Modifier.fillMaxWidth(),
                     onClick = { showCountries = !showCountries }) {
-                    Text("Select Location")
+                    Text(text = stringResource(Res.string.button_label))
                 }
             }
         }
