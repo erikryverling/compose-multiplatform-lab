@@ -1,7 +1,7 @@
 rootProject.name = "compose-multiplatform-lab"
 
 include(
-    ":composeApp"
+    ":composeApp",
 )
 
 pluginManagement {
