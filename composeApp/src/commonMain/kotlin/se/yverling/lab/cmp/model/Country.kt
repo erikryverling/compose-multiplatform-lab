@@ -1,6 +1,5 @@
 package se.yverling.lab.cmp.model
 
-import kotlinx.datetime.Clock
 import kotlinx.datetime.LocalTime
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
@@ -11,9 +10,12 @@ import se.yverling.lab.cmp.fr
 import se.yverling.lab.cmp.id
 import se.yverling.lab.cmp.jp
 import se.yverling.lab.cmp.mx
+import kotlin.time.Clock
+import kotlin.time.ExperimentalTime
 
 data class Country(val name: String, val zone: TimeZone, val image: DrawableResource)
 
+@OptIn(ExperimentalTime::class)
 internal fun currentTimeAt(location: String, zone: TimeZone): String {
     fun LocalTime.formatted() = "$hour:$minute:$second"
 
