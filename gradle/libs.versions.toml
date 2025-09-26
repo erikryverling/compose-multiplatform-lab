@@ -1,19 +1,19 @@
 [versions]
 
 # Global
-kotlin = "2.2.10"
+kotlin = "2.2.20"
 
 # Plugins
-kotlin-dsl-plugin = "6.2.0"
-android-plugin = "8.12.2"
-compose-plugin = "1.8.2"
+kotlin-dsl-plugin = "6.4.0"
+android-plugin = "8.13.0"
+compose-plugin = "1.9.0"
 ktlint-plugin = "13.1.0"
 
 # Libraries
 kotlinx-datetime = "0.7.1"
 
-compose-activity = "1.10.1"
-compose-tooling = "1.9.0"
+compose-activity = "1.11.0"
+compose-tooling = "1.9.2"
 
 [plugins]
 kotlin-dsl = { id = "org.gradle.kotlin.kotlin-dsl", version.ref = "kotlin-dsl-plugin" }
