@@ -1,19 +1,19 @@
 [versions]
 
-# Global
-kotlin = "2.2.20"
+# Common
+kotlin = "2.2.21"
 
 # Plugins
-kotlin-dsl-plugin = "6.4.0"
-android-plugin = "8.13.0"
-compose-plugin = "1.9.0"
-ktlint-plugin = "13.1.0"
+kotlin-dsl-plugin = "6.4.2"
+android-plugin = "8.13.1"
+compose-plugin = "1.9.3"
+ktlint-plugin = "14.0.1"
 
 # Libraries
 kotlinx-datetime = "0.7.1"
 
-compose-activity = "1.11.0"
-compose-tooling = "1.9.2"
+compose-activity = "1.12.0"
+compose-tooling = "1.9.5"
 
 [plugins]
 kotlin-dsl = { id = "org.gradle.kotlin.kotlin-dsl", version.ref = "kotlin-dsl-plugin" }
@@ -21,7 +21,7 @@ android = { id = "com.android.application", version.ref = "android-plugin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 compose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-ktlint = {id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint-plugin"}
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint-plugin" }
 
 [libraries]
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
