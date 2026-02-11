@@ -5,7 +5,7 @@ kotlin = "2.3.10"
 
 # Plugins
 kotlin-dsl-plugin = "6.4.2" # Let Gradle control version - matches Gradle 9.3.1's embedded Kotlin
-android-plugin = "8.13.2"
+android-plugin = "8.13.2" # AGP 9.0.0 exists but staying on 8.x for stability and compatibility with third-party plugins
 compose-plugin = "1.10.1"
 ktlint-plugin = "14.0.1"
 
