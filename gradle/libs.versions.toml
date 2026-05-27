@@ -1,19 +1,19 @@
 [versions]
 
 # Common
-kotlin = "2.3.20"
+kotlin = "2.3.21"
 
 # Plugins
-kotlin-dsl-plugin = "6.5.2" # Matches Gradle 9.4.1's embedded Kotlin
-android-plugin = "9.1.0"
-compose-plugin = "1.10.3"
+kotlin-dsl-plugin = "6.5.7" # Matches Gradle 9.5.1's expected version
+android-plugin = "9.2.1"
+compose-plugin = "1.11.0"
 ktlint-plugin = "14.2.0"
 
 # Libraries
-kotlinx-datetime = "0.7.1"
+kotlinx-datetime = "0.8.0"
 
 compose-activity = "1.13.0"
-compose-tooling = "1.10.6"
+compose-tooling = "1.11.2"
 
 [plugins]
 kotlin-dsl = { id = "org.gradle.kotlin.kotlin-dsl", version.ref = "kotlin-dsl-plugin" }
